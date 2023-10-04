@@ -1,6 +1,7 @@
 import boto3
 
-s3 = boto3.resource('s3')
-bucket = s3.Bucket('my-bucket')
-# suggested by Jordon Philips
-bucket.objects.all().delete()
+s3 = boto3.client('s3')
+
+response = s3.delete_object(Bucket="tech254-wafa-bucket", Key="testfile2.txt")
+
+print(response)
